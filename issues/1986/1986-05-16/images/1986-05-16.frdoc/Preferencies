@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>exportPdfCopyDocumentSecurity</key>
+	<false/>
+	<key>exportPdfCopyDocumentSecurityPassword</key>
+	<string></string>
+	<key>exportPdfExportMode</key>
+	<integer>1</integer>
+	<key>exportPdfOpenDocumentSecurity</key>
+	<false/>
+	<key>exportPdfOpenDocumentSecurityPassword</key>
+	<string></string>
+	<key>exportPdfPaperSize</key>
+	<string>0,0</string>
+	<key>exportPdfPrintDocumentSecurity</key>
+	<false/>
+</dict>
+</plist>
