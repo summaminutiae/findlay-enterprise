@@ -1,0 +1,11 @@
+H1, H3, H5, p {text-align: center;}
+h1 {color: green;}
+
+p.menu {text-align: left;}
+
+body {background-image: url("parchment.jpg");}
+body {background-image: url("../parchment.jpg");}
+
+.newspaper {column-count: 3;}
+body {background-image: url("parchment.jpg");}
+
