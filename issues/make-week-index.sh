@@ -13,22 +13,23 @@
 
 for dir in $(gfind /Users/billw/git/findlay-enterprise/issues -path '*/????/????-??-??' -type d | gsort); do
     # dir is /Users/billw/git/findlay-enterprise/issues/1986/1986-08-08
-    date="${dir##*/}"                 # 1986-08-08
-    year="${date%%-*}"                # 1986
+    date="${dir##*/}"  # 1986-08-08
+    year="${date%%-*}" # 1986
 
+    echo "writing $dir/index.html"
     cat <<EOF > "$dir/index.html"
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<link rel="stylesheet" href="../../../assets/weeks.css">
-		<title> Findlay Enterprise $date</title>
-	</head>
-	<body>
-		<a href="../../index.html">Year list</a> | <a href="../weeks.html">Weeks list</a>
-		<h1>The Findlay Enterprise</h1>
-		<h3>Pages published this week</h3>
-		<div class="newspaper">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../assets/weeks.css">
+    <title> Findlay Enterprise $date</title>
+  </head>
+  <body>
+    <a href="../../index.html">Year list</a> | <a href="../index.html">Weeks list</a>
+    <h1>The Findlay Enterprise</h1>
+    <h3>Pages published this week</h3>
+    <div class="newspaper">
 EOF
 
     for f in $(gfind $dir -type f -path '*/thumbs/*.jpg' -print | gsort); do
@@ -49,8 +50,8 @@ EOF
     done
 
     cat <<EOF >> "$dir/index.html"
-		</div>
-	</body>
+    </div>
+  </body>
 </html>
 EOF
 done
