@@ -2,3 +2,5 @@ figure {display: inline-block;}
 figcaption {text-align: center;}
 h1, p, h3 {text-align: center;}
 body {background-image: url("parchment.jpg");}
+
+img.thumb {width:147px; height:230px;}
