@@ -23,7 +23,7 @@ for dir in $(gfind /Users/billw/git/findlay-enterprise/issues -path '*/[0-9][0-9
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../../assets/styles.css">
-    <title> Findlay Enterprise 1986</title>
+    <title> Findlay Enterprise $year</title>
   </head>
   <body>
     <a href="../index.html">Year list</a>
