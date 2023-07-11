@@ -1,6 +1,6 @@
 #!/bin/bash
 
-year=1984
+year=1983
 
 echo "bringing files from $year into the repo..."
 rsync -a /Users/billw/Dropbox/projects/Findlay-Enterprise/enterprise/$year/ /Users/billw/git/findlay-enterprise/issues/$year
@@ -14,6 +14,6 @@ echo "creating an html file for each page..."
 echo "creating an index file for each issue..."
 /Users/billw/git/findlay-enterprise/issues/make-week-index.sh
 echo "creating an index file for each year"
-/Users/billw/git/findlay-enterprise/issues/make-year-index.sh 
+/Users/billw/git/findlay-enterprise/issues/make-year-index.sh
 
 echo "done.";
