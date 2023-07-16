@@ -1,6 +1,6 @@
 #!/bin/bash
 
-year=1980
+year=1979
 
 echo "bringing files from $year into the repo..."
 rsync -a /Users/billw/Dropbox/projects/Findlay-Enterprise/enterprise/$year/ /Users/billw/git/findlay-enterprise/issues/$year
