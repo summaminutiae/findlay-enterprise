@@ -4,7 +4,34 @@
 # http://members.wolfram.com/billw/findlay-enterprise/issues/1986/1986-04-18/images/01.html
 # displays page 1 of the April 18, 1986 issue
 
-for img in $(gfind /Users/billw/git/findlay-enterprise/issues -path '*/images/[0-9][0-9].jpg' -type f | gsort); do
+# * usage
+
+read -r -d '' usage <<'EOF'
+make-page-html.sh: create an html file for each individual page
+
+Usage:
+------
+
+make-page-html.sh [-y year]
+  -y: [year number]
+  -h: help
+EOF
+
+
+# * process arguments
+
+while getopts 'y:' flag
+do
+    case "${flag}" in
+        y) export yearArg=${OPTARG};;
+        h) echo "$usage" >&2
+           exit 1 ;;
+        *) echo "$usage" >&2
+           exit 1 ;;
+    esac
+done
+
+for img in $(gfind "/Users/billw/git/findlay-enterprise/issues/$yearArg" -path '*/images/[0-9][0-9].jpg' -type f | gsort); do
     fileName=$img              # /Users/billw/git/findlay-enterprise/issues/1986/1986-08-08/images/01.jpg
     fullBase="${fileName%.*}"  # /Users/billw/git/findlay-enterprise/issues/1986/1986-08-08/images/01
     base="${fileName##*/}"     # 01.jpg

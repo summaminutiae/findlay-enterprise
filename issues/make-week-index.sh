@@ -11,7 +11,34 @@
  # - create each of /Users/billw/git/findlay-enterprise/issues/1986/1986-08-08/index.html
  # - this index.html should point to https://raw.githubusercontent.com/summaminutiae/findlay-enterprise/master/issues/$year/$date/thumbs/$base
 
-for dir in $(gfind /Users/billw/git/findlay-enterprise/issues -path '*/????/????-??-??' -type d | gsort); do
+# * usage
+
+read -r -d '' usage <<'EOF'
+make-week-index.sh: create an html file for each weekly issue of the Enterprise
+
+Usage:
+------
+
+make-week-index.sh [-y year]
+  -y: [year number]
+  -h: help
+EOF
+
+
+# * process arguments
+
+while getopts 'y:' flag
+do
+    case "${flag}" in
+        y) export yearArg=${OPTARG};;
+        h) echo "$usage" >&2
+           exit 1 ;;
+        *) echo "$usage" >&2
+           exit 1 ;;
+    esac
+done
+
+for dir in $(gfind "/Users/billw/git/findlay-enterprise/issues/$yearArg" -path '*/????/????-??-??' -type d | gsort); do
     # dir is /Users/billw/git/findlay-enterprise/issues/1986/1986-08-08
     date="${dir##*/}"  # 1986-08-08
     year="${date%%-*}" # 1986

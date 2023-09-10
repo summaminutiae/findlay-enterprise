@@ -12,7 +12,35 @@
 # - this index.html should point to specific issues: e.g.,
 #   http://members.wolfram.com/billw/findlay-enterprise/issues/1985/1985-02-15/
 
-for dir in $(gfind /Users/billw/git/findlay-enterprise/issues -path '*/[0-9][0-9][0-9][0-9]' -type d | gsort); do
+# * usage
+
+read -r -d '' usage <<'EOF'
+make-year-index.sh: create an html file for one year of the Enterprise based on files available
+
+Usage:
+------
+
+make-year-index.sh [-y year]
+  -y: [year number]
+  -h: help
+EOF
+
+
+# * process arguments
+
+while getopts 'y:' flag
+do
+    case "${flag}" in
+        y) export yearArg=${OPTARG};;
+        h) echo "$usage" >&2
+           exit 1 ;;
+        *) echo "$usage" >&2
+           exit 1 ;;
+    esac
+done
+
+
+for dir in $(gfind "/Users/billw/git/findlay-enterprise/issues/$yearArg" -path '*/[0-9][0-9][0-9][0-9]' -type d | gsort); do
     # dir is /Users/billw/git/findlay-enterprise/issues/1984
     year="${dir##*/}" # 1984
 
